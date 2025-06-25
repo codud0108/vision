@@ -21,14 +21,14 @@ def recommend_mood_by_time():
 # 세션 상태 초기화
 if "playlist_data" not in st.session_state:
     st.session_state.playlist_data = {
-        "기분이 우울할 때": [
+        "우울할 때": [
             "백예린 - Square (2017)",
             "밍기뉴 - 오래오래, 우리",
             "밍기뉴 - 나의 모든 이들에게",
             "IU - Love Poem",
             "정승환 - 눈사람",
         ],
-        "기분이 신날 때": [
+        "신날 때": [
             "방탄소년단 - Dynamite",
             "NewJeans - Super Shy",
             "Bruno Mars - Uptown Funk",
