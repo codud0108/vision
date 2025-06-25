@@ -116,7 +116,7 @@ if "playlist_data" not in st.session_state:
 
         "겨울에": [
             "원위 - 크리스마스는 이래야지",
-            "볼빨간사춘기 - 여행",
+            "ARIANA GRANDE - SANTA TELL ME",
             "Paul Kim - 모든 날, 모든 순간",
         ],
     }
