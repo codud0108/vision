@@ -4,13 +4,15 @@ from oauth2client.service_account import ServiceAccountCredentials
 import pandas as pd
 import urllib.parse
 from datetime import datetime
+import json
 
-# ---------------------
-# 🔐 Google Sheets 인증
-# ---------------------
+# Google 인증 (secrets 사용)
 scope = ["https://spreadsheets.google.com/feeds", "https://www.googleapis.com/auth/drive"]
-creds = ServiceAccountCredentials.from_json_keyfile_name("creds.json", scope)
+creds_dict = st.secrets["gcp_service_account"]
+creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 client = gspread.authorize(creds)
+
+# 시트 불러오기
 sheet = client.open("playlist_data").sheet1
 
 # ---------------------
