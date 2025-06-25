@@ -81,6 +81,7 @@ if "playlist_data" not in st.session_state:
         "비올 때": [
             "잔나비 - 주저하는 연인들을 위해",
             "볼빨간사춘기 - 여행",
+            "아이유 -love wins all"
             "Paul Kim - 모든 날, 모든 순간",
         ],
         "눈올 때": [
