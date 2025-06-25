@@ -3,7 +3,7 @@ import urllib.parse
 from datetime import datetime
 
 st.set_page_config(page_title="나만의 플레이리스트", page_icon="🎧", layout="centered")
-st.title("🎧 나만의 플레이리스트 추천 앱")
+st.title("🎧 플레이리스트 추천")
 st.markdown("상황에 맞는 음악을 추천받고, 새로운 상황과 곡도 자유롭게 추가하세요!")
 
 # 🎯 접속 시간 기반 추천 상황 설정
