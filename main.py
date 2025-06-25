@@ -2,7 +2,7 @@ import streamlit as st
 
 st.set_page_config(page_title="To-Do List", page_icon="📝", layout="centered")
 
-st.title("📝 나의 To-Do List")
+st.title("📆 To-Do List")
 
 # 세션 상태 초기화
 if "todo_list" not in st.session_state:
@@ -16,7 +16,7 @@ with st.form("todo_form", clear_on_submit=True):
         st.session_state.todo_list.append({"task": new_task, "done": False})
 
 # 할 일 목록 보여주기
-st.subheader("📋 오늘의 할 일")
+st.subheader("📌 오늘의 할 일")
 
 # 체크박스를 통해 완료 처리
 for i, item in enumerate(st.session_state.todo_list):
@@ -32,7 +32,7 @@ for i, item in enumerate(st.session_state.todo_list):
     st.session_state.todo_list[i]["done"] = checked
 
 # 완료된 항목 삭제 버튼
-if st.button("✅ 완료된 항목 지우기"):
+if st.button("✔ 완료된 항목 지우기"):
     st.session_state.todo_list = [item for item in st.session_state.todo_list if not item["done"]]
 
 # 현재 할 일 개수
