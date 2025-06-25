@@ -23,11 +23,13 @@ if "playlist_data" not in st.session_state:
     st.session_state.playlist_data = {
         "기분이 우울할 때": [
             "백예린 - Square (2017)",
+            "밍기뉴 - 나의 모든이들에게",
             "IU - Love Poem",
             "정승환 - 눈사람",
         ],
         "기분이 신날 때": [
             "방탄소년단 - Dynamite",
+            "LUCY - NEVER IN VAIN",
             "NewJeans - Super Shy",
             "Bruno Mars - Uptown Funk",
         ],
