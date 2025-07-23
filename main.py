@@ -62,13 +62,8 @@ if st.button("🎵 추천받기"):
     if songs:
         song = random.choice(songs)
         st.success(f"'{selected_mood}' 상황에 어울리는 추천 곡:")
-        st.markdown(f"🎶 {song}")
-        st.markdown(
-            f'<iframe width="100%" height="100" '
-            f'src="https://www.youtube.com/embed?listType=search&list={urllib.parse.quote(song)}" '
-            f'frameborder="0" allowfullscreen></iframe>',
-            unsafe_allow_html=True
-        )
+        search_url = f"https://www.youtube.com/results?search_query={urllib.parse.quote(song)}"
+        st.markdown(f"🎶 [{song}]({search_url})")
         if song not in st.session_state.user_selected_data[username][selected_mood]:
             st.session_state.user_selected_data[username][selected_mood].append(song)
     else:
@@ -86,13 +81,8 @@ if st.button("랜덤 추천 받기"):
         selected_songs = random.sample(songs, k=min(num_songs, len(songs)))
         st.info(f"'{random_mood}' 상황에서 추천된 곡 {len(selected_songs)}개:")
         for song in selected_songs:
-            st.markdown(f"🎶 {song}")
-            st.markdown(
-                f'<iframe width="100%" height="100" '
-                f'src="https://www.youtube.com/embed?listType=search&list={urllib.parse.quote(song)}" '
-                f'frameborder="0" allowfullscreen></iframe>',
-                unsafe_allow_html=True
-            )
+            search_url = f"https://www.youtube.com/results?search_query={urllib.parse.quote(song)}"
+            st.markdown(f"🎶 [{song}]({search_url})")
             if song not in st.session_state.user_selected_data[username][random_mood]:
                 st.session_state.user_selected_data[username][random_mood].append(song)
     else:
@@ -133,7 +123,7 @@ if st.button("상황 추가"):
     else:
         st.warning("상황 이름을 입력해주세요.")
 
-# 📂 사용자 개인 추천 기록 출력 (YouTube 임베드 포함)
+# 📂 사용자 개인 추천 기록 출력 (텍스트 링크로 표시)
 st.divider()
 st.subheader(f"👤 '{username}'님의 추천곡 기록")
 user_data = st.session_state.user_selected_data[username]
@@ -141,10 +131,5 @@ for mood, songs in user_data.items():
     if songs:
         with st.expander(f"⭐ {mood} 추천 기록 ({len(songs)}곡)"):
             for song in songs:
-                st.markdown(f"✅ {song}")
-                st.markdown(
-                    f'<iframe width="100%" height="100" '
-                    f'src="https://www.youtube.com/embed?listType=search&list={urllib.parse.quote(song)}" '
-                    f'frameborder="0" allowfullscreen></iframe>',
-                    unsafe_allow_html=True
-                )
+                search_url = f"https://www.youtube.com/results?search_query={urllib.parse.quote(song)}"
+                st.markdown(f"✅ [{song}]({search_url})")
